@@ -78,10 +78,10 @@ const ProfilePage = () => {
     e.preventDefault();
     try {
       const headers = {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`
+        Authorization: `Bearer ${token}`,
+        "Content-Type": "application/json"
       };
-      const response = await axios.post(
+      const response = await axios.patch(
         url,
         {
           id: userId,
@@ -92,7 +92,7 @@ const ProfilePage = () => {
           useremail: data.useremail
         },
         {
-          headers: headers
+          headers
         }
       );
       if (response.status === 200) {
